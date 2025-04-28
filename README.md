@@ -28,5 +28,3 @@ Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 - [![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/InfernoidPl4y)  
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/)
 
----
-✨ Hecho con Markdown.

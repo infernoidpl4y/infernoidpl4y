@@ -1,8 +1,3 @@
-# ¡Hola Mundo! 👋
-
-Bienvenido a mi página en **GitHub Pages**.  
-Aquí compartiré mis proyectos y artículos.
-
 ## 🔥 Sobre Mí
 Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 - Cyber Security

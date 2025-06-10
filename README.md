@@ -8,11 +8,11 @@ Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 ## 🛠️ Proyectos Destacados
 | Nombre       | Descripción          | Enlace |
 |--------------|----------------------|--------|
+| QuaeroDB     | Gestor de DB         | [Ver](https://quaerodb.pythonanywhere.com/) |
 | Mi Portfolio | Portfolio            | [Ver](https://infernoidpl4y.netlify.app/) |
 | SolvinAI     | AI interactiva       | [Ver](https://github.com/infernoidpl4y/SolvinAI) |
 | Log_Analizer | Anilizador de Logs   | [Ver](https://github.com/infernoidpl4y/Log_Analyzer) |
 | XSSLab       | Lab de XSS dinámico  | [Ver](https://github.com/infernoidpl4y/XSSLab)|
-| QuaeroDB     | Gestor de DB         | 🤫 |
 
 ## 📜 Certificaciones
 

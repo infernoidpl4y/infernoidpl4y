@@ -13,7 +13,7 @@ Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 | SolvinAI     | AI interactiva       | [Ver](https://github.com/infernoidpl4y/SolvinAI) |
 | Log_Analizer | Anilizador de Logs   | [Ver](https://github.com/infernoidpl4y/Log_Analyzer) |
 | XSSLab       | Lab de XSS dinámico  | [Ver](https://github.com/infernoidpl4y/XSSLab)|
-| ArtInt       | Prompt LLM           | [Ver](https://github.com/infernoidpl4y/ArtInt)|
+| ArtInt       | lenguaje de programación | [Ver](https://github.com/infernoidpl4y/ArtInt)|
 
 ## 📜 Certificaciones
 

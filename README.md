@@ -24,7 +24,7 @@ Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 - [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:infernoidpl4y@gmail.com)  
 - [![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/InfernoidPl4y)  
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/)
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=infernoidpl4y&show_icons=true&theme=dark)
+![InfernoidPl4y GitHub stats](https://github-readme-stats.vercel.app/api?username=infernoidpl4y&show_icons=true&theme=dark)
 <h1 align="center">
 <img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Un+byte+a+la+vez🛡💻!;" />
 </h1>

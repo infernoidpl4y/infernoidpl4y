@@ -24,3 +24,4 @@ Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 - [![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:infernoidpl4y@gmail.com)  
 - [![X](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/InfernoidPl4y)  
 - [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/)
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=infernoidpl4y&show_icons=true&theme=radical)

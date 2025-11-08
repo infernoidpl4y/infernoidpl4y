@@ -27,5 +27,5 @@ Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 
 ![InfernoidPl4y GitHub stats](https://github-readme-stats.vercel.app/api?username=infernoidpl4y&show_icons=true&theme=dark)
 <h1 align="center">
-<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Un+byte+a+la+vez🛡💻!;" />
+<img src="https://readme-typing-svg.herokuapp.com/?font=Righteous&size=35&center=true&vCenter=true&width=500&height=70&duration=4000&lines=Cazando+el+próximo+0-day!;" />
 </h1>

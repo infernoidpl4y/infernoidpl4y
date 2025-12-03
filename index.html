@@ -2,85 +2,964 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ronnie Molina - Portafolio</title>
-
-  <!-- Shoelace CDN (versión estable) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/themes/light.css" />
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/shoelace-autoloader.js"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portafolio profesional de Ronnie Molina Martínez - Especialista en Ciberseguridad, Bug Bounty Hunter y Desarrollador Full-Stack" />
+  <meta name="keywords" content="ciberseguridad, pentesting, bug bounty, desarrollo web, seguridad informática" />
+  <meta name="author" content="Ronnie Molina Martínez" />
+  
+  <title>Ronnie Molina Martínez | Especialista en Ciberseguridad</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
   <style>
-    body {
+    :root {
+      --bg: #0a0a0f;
+      --text: #e6e6ff;
+      --accent: #00d4aa;
+      --accent-dark: #00997a;
+      --card-bg: #161622;
+      --card-bg-hover: #1e1e2e;
+      --border: #2a2a3a;
+      --section-spacing: 5rem;
+      --gradient: linear-gradient(135deg, var(--accent), #0088cc);
+    }
+
+    * {
       margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #fafafa;
-      color: #111;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+      line-height: 1.7;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    h1, h2 {
-      margin-bottom: 1rem;
+
+    /* Tipografía mejorada */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
     }
-    .bio {
-      line-height: 1.6;
-      margin-bottom: 2rem;
-    }
-    sl-card {
-      margin-bottom: 1.5rem;
-    }
-    .links {
+
+    /* Header mejorado */
+    header {
+      padding: 1.5rem 5%;
       display: flex;
-      gap: 1rem;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(42, 42, 58, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 1rem 5%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo i {
+      font-size: 1.5rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all 0.3s;
+      position: relative;
+      padding: 0.5rem 0;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
+
+    /* Secciones */
+    section {
+      padding: var(--section-spacing) 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Hero section mejorada */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 70%;
+      height: 150%;
+      background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+      z-index: -1;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, var(--accent), #50e3c2, #00d4aa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: gradientShift 3s ease infinite;
+      background-size: 200% 200%;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .hero .subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: #b0b0d0;
+      max-width: 700px;
+    }
+
+    .hero-highlights {
+      display: flex;
       flex-wrap: wrap;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .highlight {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 1.1rem;
+    }
+
+    .highlight i {
+      color: var(--accent);
+      font-size: 1.3rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--gradient);
+      transition: left 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .btn:hover {
+      color: var(--bg);
+      border-color: transparent;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 212, 170, 0.2);
+    }
+
+    /* Títulos de sección mejorados */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 3rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    /* Cards mejoradas */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: var(--card-bg-hover);
+      border-color: var(--accent);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .card h3 i {
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: #c0c0e0;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    /* Grids mejorados */
+    .skills-grid,
+    .experience-grid,
+    .projects-grid,
+    .certs-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .experience-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Tags mejorados */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .tag {
+      background: rgba(0, 212, 170, 0.1);
+      color: var(--accent);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid rgba(0, 212, 170, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .tag:hover {
+      background: rgba(0, 212, 170, 0.2);
+      transform: translateY(-2px);
+    }
+
+    /* Contacto mejorado */
+    .contact-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-card {
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      background: var(--card-bg);
+      color: var(--text);
+      border-radius: 50%;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .contact-links a:hover {
+      background: var(--gradient);
+      color: var(--bg);
+      transform: translateY(-5px);
+      border-color: var(--accent);
+    }
+
+    /* Footer mejorado */
+    footer {
+      text-align: center;
+      padding: 3rem 5%;
+      color: #888;
+      border-top: 1px solid var(--border);
+      margin-top: var(--section-spacing);
+      background: rgba(10, 10, 15, 0.8);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    /* Responsive mejorado */
+    @media (max-width: 992px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .contact-content {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+      }
+      
+      nav {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero .subtitle {
+        font-size: 1.2rem;
+      }
+      
+      h2 {
+        font-size: 2.2rem;
+      }
+      
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-highlights {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .card {
+        padding: 1.5rem;
+      }
+    }
+
+    /* Animaciones de scroll */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Efectos de partículas */
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 50%;
+      opacity: 0.3;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Ronnie Molina Martínez</h1>
-    <p class="bio">
-      Ingeniero de backend y investigador en ciberseguridad ofensiva.  
-      Especializado en APIs seguras, pentesting, análisis de logs y desarrollo de herramientas automatizadas.
-    </p>
 
-    <h2>Proyectos</h2>
-
-    <sl-card>
-      <h3>QuaeroDB</h3>
-      <p>API RESTful para gestión segura de usuarios con autenticación y verificación en tiempo real.</p>
-      <sl-button href="https://github.com/InfernoidPl4y/quaerodb" target="_blank" variant="primary" size="small">Ver en GitHub</sl-button>
-    </sl-card>
-
-    <sl-card>
-      <h3>Log Analyzer</h3>
-      <p>Herramienta para monitoreo en tiempo real y análisis forense de logs de seguridad.</p>
-      <sl-button href="https://github.com/InfernoidPl4y" target="_blank" variant="primary" size="small">Ver en GitHub</sl-button>
-    </sl-card>
-
-    <sl-card>
-      <h3>XSS Lab</h3>
-      <p>Plataforma colaborativa para aprender y practicar vulnerabilidades XSS de forma segura.</p>
-      <sl-button href="https://github.com/InfernoidPl4y/xss-lab" target="_blank" variant="primary" size="small">Ver en GitHub</sl-button>
-    </sl-card>
-
-    <h2>Contacto</h2>
-    <div class="links">
-      <sl-button href="https://github.com/InfernoidPl4y" target="_blank" variant="neutral" size="small">
-        GitHub
-      </sl-button>
-      <sl-button href="https://x.com/InfernoidPl4y" target="_blank" variant="neutral" size="small">
-        X (Twitter)
-      </sl-button>
-      <sl-button href="https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/" target="_blank" variant="neutral" size="small">
-        LinkedIn
-      </sl-button>
-      <sl-button href="mailto:infernoidpl4y@gmail.com" variant="neutral" size="small">
-        Email
-      </sl-button>
+  <header id="main-header">
+    <div class="logo">
+      <i class="fas fa-shield-alt"></i>
+      <span>Ronnie Molina</span>
     </div>
-  </div>
+    <nav>
+      <a href="#about" class="active">Inicio</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#experience">Experiencia</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#certifications">Certificaciones</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="about">
+    <h1>Ronnie Molina Martínez</h1>
+    <p class="subtitle">
+      Especialista en <strong>Ciberseguridad Ofensiva</strong> | <strong>Bug Bounty Hunter</strong> certificado | 
+      <strong>Desarrollador Full-Stack</strong> con enfoque en seguridad aplicada
+    </p>
+    
+    <div class="hero-highlights">
+      <div class="highlight">
+        <i class="fas fa-bug"></i>
+        <span>Identificación y reporte de vulnerabilidades</span>
+      </div>
+      <div class="highlight">
+        <i class="fas fa-code"></i>
+        <span>Desarrollo de herramientas de seguridad</span>
+      </div>
+      <div class="highlight">
+        <i class="fas fa-shield-alt"></i>
+        <span>Pentesting & Análisis Forense</span>
+      </div>
+    </div>
+    
+    <p style="margin-bottom: 2rem; max-width: 800px; color: #a0a0c0;">
+      Apasionado por la seguridad ofensiva y el desarrollo seguro. Combino habilidades técnicas avanzadas con 
+      metodologías de testing rigurosas para fortalecer sistemas y aplicaciones contra amenazas modernas.
+    </p>
+    
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <a href="#projects" class="btn">
+        <i class="fas fa-rocket"></i>
+        Explorar Proyectos
+      </a>
+      <a href="#contact" class="btn" style="border-color: #666; color: #ccc;">
+        <i class="fas fa-paper-plane"></i>
+        Contactar
+      </a>
+    </div>
+  </section>
+
+  <section class="skills" id="skills">
+    <div class="section-header">
+      <h2>Habilidades Técnicas</h2>
+      <p style="color: #888; max-width: 400px;">Dominio de tecnologías y metodologías modernas en ciberseguridad y desarrollo</p>
+    </div>
+    
+    <div class="skills-grid">
+      <div class="card fade-in">
+        <h3><i class="fas fa-crosshairs"></i> Pentesting & Red Team</h3>
+        <p>Evaluación de seguridad exhaustiva en entornos controlados, utilizando metodologías reconocidas (OSSTMM, OWASP). Pruebas de penetración web, móvil y de infraestructura.</p>
+        <div class="tags">
+          <span class="tag">OSSTMM</span>
+          <span class="tag">OWASP Testing</span>
+          <span class="tag">Metasploit</span>
+          <span class="tag">Burp Suite</span>
+          <span class="tag">Nmap</span>
+        </div>
+      </div>
+      
+      <div class="card fade-in">
+        <h3><i class="fas fa-code"></i> Desarrollo Seguro</h3>
+        <p>Creación de aplicaciones con principios de seguridad desde el diseño. Desarrollo de herramientas personalizadas para automatización de pruebas y análisis forense.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask/Django</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">APIs Seguras</span>
+          <span class="tag">DevSecOps</span>
+        </div>
+      </div>
+      
+      <div class="card fade-in">
+        <h3><i class="fas fa-globe"></i> Web Hacking & Bug Bounty</h3>
+        <p>Participación activa en programas de bug bounty. Especializado en identificación de vulnerabilidades OWASP Top 10, lógica de negocio y técnicas avanzadas de explotación.</p>
+        <div class="tags">
+          <span class="tag">Bug Bounty</span>
+          <span class="tag">OWASP Top 10</span>
+          <span class="tag">Reconocimiento</span>
+          <span class="tag">Explotación Web</span>
+        </div>
+      </div>
+      
+      <div class="card fade-in">
+        <h3><i class="fas fa-tools"></i> Herramientas & Tecnologías</h3>
+        <p>Dominio de stack tecnológico completo para seguridad ofensiva y desarrollo, incluyendo herramientas de automatización, análisis y frameworks especializados.</p>
+        <div class="tags">
+          <span class="tag">Linux/Windows</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Git</span>
+          <span class="tag">SQL/NoSQL</span>
+          <span class="tag">Cloud Security</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience" id="experience">
+    <div class="section-header">
+      <h2>Experiencia & Metodologías</h2>
+      <p style="color: #888; max-width: 400px;">Enfoque sistemático y resultados demostrables en seguridad ofensiva</p>
+    </div>
+    
+    <div class="experience-grid">
+      <div class="card fade-in">
+        <h3><i class="fas fa-search"></i> Análisis de Vulnerabilidades</h3>
+        <p>Identificación y clasificación de vulnerabilidades utilizando metodologías estandarizadas. Evaluación de riesgos y propuesta de remediaciones efectivas.</p>
+        <div class="tags">
+          <span class="tag">CVSS Scoring</span>
+          <span class="tag">Risk Assessment</span>
+          <span class="tag">Remediation</span>
+        </div>
+      </div>
+      
+      <div class="card fade-in">
+        <h3><i class="fas fa-bug"></i> Programas Bug Bounty</h3>
+        <p>Participación exitosa en plataformas reconocidas, con hallazgos validados en empresas de diversos sectores. Enfoque en vulnerabilidades críticas y de alto impacto.</p>
+        <div class="tags">
+          <span class="tag">HackerOne</span>
+          <span class="tag">Bugcrowd</span>
+          <span class="tag">Responsible Disclosure</span>
+        </div>
+      </div>
+      
+      <div class="card fade-in">
+        <h3><i class="fas fa-robot"></i> Automatización & Scripting</h3>
+        <p>Desarrollo de herramientas personalizadas para optimizar procesos de testing. Scripts para reconocimiento automatizado, explotación y análisis post-explotación.</p>
+        <div class="tags">
+          <span class="tag">Python Scripting</span>
+          <span class="tag">Automation</span>
+          <span class="tag">Tool Development</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="section-header">
+      <h2>Proyectos Destacados</h2>
+      <p style="color: #888; max-width: 400px;">Implementaciones técnicas que demuestran habilidades y enfoque práctico</p>
+    </div>
+    
+    <div class="projects-grid">
+      <div class="card project-card fade-in">
+        <h3><i class="fas fa-database"></i> QuaeroDB</h3>
+        <p>API RESTful segura para gestión de bases de datos de usuarios con autenticación JWT, rate limiting, auditoría completa y validación de entrada robusta.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">JWT</span>
+          <span class="tag">REST API</span>
+          <span class="tag">SQLAlchemy</span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--accent); margin: 1rem 0;">
+          <i class="fas fa-star"></i> Implementa medidas de seguridad avanzadas contra inyecciones y ataques comunes
+        </p>
+        <a href="https://github.com/InfernoidPl4y/QuaeroDB" target="_blank" class="btn">
+          <i class="fab fa-github"></i>
+          Ver Código
+        </a>
+      </div>
+
+      <div class="card project-card fade-in">
+        <h3><i class="fas fa-shield-alt"></i> XSS Lab</h3>
+        <p>Plataforma educativa interactiva para aprender y practicar vulnerabilidades XSS en un entorno controlado. Incluye challenges progresivos y guías detalladas.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Security Education</span>
+          <span class="tag">OWASP</span>
+          <span class="tag">Docker</span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--accent); margin: 1rem 0;">
+          <i class="fas fa-star"></i> Utilizado por estudiantes y profesionales para entrenamiento en seguridad web
+        </p>
+        <a href="https://github.com/InfernoidPl4y/XSSLab" target="_blank" class="btn">
+          <i class="fab fa-github"></i>
+          Ver Código
+        </a>
+      </div>
+
+      <div class="card project-card fade-in">
+        <h3><i class="fas fa-search"></i> Log Analyzer Pro</h3>
+        <p>Herramienta avanzada para análisis forense y monitoreo en tiempo real de logs de sistema. Detección de patrones sospechosos, alertas automatizadas y dashboard interactivo.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Regex</span>
+          <span class="tag">Digital Forensics</span>
+          <span class="tag">SIEM</span>
+          <span class="tag">Real-time</span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--accent); margin: 1rem 0;">
+          <i class="fas fa-star"></i> Capacidad de procesar millones de eventos con detección de anomalías
+        </p>
+        <a href="https://github.com/infernoidpl4y/Log_Analyzer" target="_blank" class="btn">
+          <i class="fab fa-github"></i>
+          Ver Código
+        </a>
+      </div>
+
+      <div class="card project-card fade-in">
+        <h3><i class="fas fa-radar"></i> VulnScan Pro</h3>
+        <p>Escáner de vulnerabilidades web profesional con detección automatizada de OWASP Top 10. Motor de scanning modular, reportes detallados y soporte para plugins personalizados.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">AsyncIO</span>
+          <span class="tag">OWASP Top 10</span>
+          <span class="tag">Web Scanning</span>
+          <span class="tag">Plugin System</span>
+        </div>
+        <p style="font-size: 0.95rem; color: var(--accent); margin: 1rem 0;">
+          <i class="fas fa-star"></i> Arquitectura escalable con soporte para escaneos distribuidos
+        </p>
+        <a href="#" class="btn" style="background: var(--gradient); color: var(--bg); border: none;">
+          <i class="fas fa-lock"></i>
+          Próximamente
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="certifications" id="certifications">
+    <div class="section-header">
+      <h2>Certificaciones & Logros</h2>
+      <p style="color: #888; max-width: 400px;">Validación formal de conocimientos y habilidades especializadas</p>
+    </div>
+    
+    <div class="certs-grid">
+      <div class="card fade-in">
+        <h3><i class="fas fa-certificate"></i> Certified Web App Pentester</h3>
+        <p>Certificación especializada en pentesting de aplicaciones web, cubriendo metodologías avanzadas de testing, explotación y reporte profesional.</p>
+        <div class="tags">
+          <span class="tag">Pentesting</span>
+          <span class="tag">Web Security</span>
+          <span class="tag">Methodology</span>
+        </div>
+        <a href="https://infernoidpl4y.netlify.app/certificaciones/certificate-196197b1.pdf" target="_blank" class="btn">
+          <i class="fas fa-external-link-alt"></i>
+          Ver Certificado
+        </a>
+      </div>
+      
+      <div class="card fade-in">
+        <h3><i class="fas fa-search-plus"></i> Advanced Google Dorking</h3>
+        <p>Certificación en técnicas avanzadas de OSINT y Google Dorking para descubrimiento de información, reconnaissance y identificación de activos expuestos.</p>
+        <div class="tags">
+          <span class="tag">OSINT</span>
+          <span class="tag">Reconnaissance</span>
+          <span class="tag">Information Gathering</span>
+        </div>
+        <a href="https://infernoidpl4y.netlify.app/certificaciones/certificate-9212e0e1.pdf" target="_blank" class="btn">
+          <i class="fas fa-external-link-alt"></i>
+          Ver Certificado
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section-header">
+      <h2>Contacto</h2>
+      <p style="color: #888; max-width: 400px;">Disponible para colaboraciones, consultorías y proyectos desafiantes</p>
+    </div>
+    
+    <div class="contact-content">
+      <div class="contact-info">
+        <div class="card fade-in">
+          <h3><i class="fas fa-envelope"></i> Información de Contacto</h3>
+          <p style="margin: 1.5rem 0;">
+            <strong>Email principal:</strong><br>
+            <a href="mailto:infernoidpl4y@gmail.com" style="color: var(--accent); text-decoration: none;">
+              infernoidpl4y@gmail.com
+            </a>
+          </p>
+          <p>
+            <strong>Disponibilidad:</strong><br>
+            Consultorías · Proyectos freelance · Colaboraciones técnicas
+          </p>
+          <p style="margin-top: 1.5rem; color: #a0a0c0; font-size: 0.95rem;">
+            <i class="fas fa-clock"></i> Respuesta dentro de 24-48 horas
+          </p>
+        </div>
+        
+        <div class="card fade-in">
+          <h3><i class="fas fa-bullseye"></i> Áreas de Interés</h3>
+          <div class="tags" style="margin-top: 1rem;">
+            <span class="tag">Pentesting Web/Móvil</span>
+            <span class="tag">Desarrollo Seguro</span>
+            <span class="tag">Automatización de Seguridad</span>
+            <span class="tag">Bug Bounty Programs</span>
+            <span class="tag">Security Research</span>
+            <span class="tag">DevSecOps</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card contact-card fade-in">
+        <h3><i class="fas fa-network-wired"></i> Conectemos</h3>
+        <p style="margin: 2rem 0;">
+          Sígueme en mis redes para ver proyectos en tiempo real, hallazgos de seguridad y contenido técnico especializado.
+        </p>
+        
+        <div class="contact-links">
+          <a href="https://github.com/InfernoidPl4y" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="https://x.com/InfernoidPl4y" target="_blank" title="Twitter/X">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="mailto:infernoidpl4y@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+        
+        <p style="margin-top: 2rem; color: #888; font-size: 0.9rem;">
+          <i class="fas fa-lock"></i> Comunícate de forma segura para consultas sensibles
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div style="text-align: left;">
+        <h3 style="color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem;">
+          <i class="fas fa-shield-alt"></i> Ronnie Molina Martínez
+        </h3>
+        <p style="color: #aaa; max-width: 300px;">
+          Especialista en ciberseguridad ofensiva y desarrollo seguro
+        </p>
+      </div>
+      
+      <div>
+        <p style="color: #888; margin-bottom: 0.5rem;">
+          &copy; 2025 Ronnie Molina Martínez. Todos los derechos reservados.
+        </p>
+        <p style="color: #666; font-size: 0.9rem;">
+          Desarrollado con <i class="fas fa-heart" style="color: #ff4757;"></i> y enfoque en seguridad
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeElements = document.querySelectorAll('.fade-in');
+      const header = document.getElementById('main-header');
+      
+      // Scroll header effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Intersection Observer for fade-in animations
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      });
+      
+      fadeElements.forEach(el => observer.observe(el));
+      
+      // Smooth scroll for navigation links
+      document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId.startsWith('#')) {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+              });
+              
+              // Update active nav link
+              document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+              });
+              this.classList.add('active');
+            }
+          }
+        });
+      });
+      
+      // Update active nav link on scroll
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+        
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.clientHeight;
+          if (scrollY >= (sectionTop - 100)) {
+            current = section.getAttribute('id');
+          }
+        });
+        
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

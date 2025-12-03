@@ -1,699 +1,399 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfernoidPl4y | Cybersecurity Specialist</title>
-    <style>
-        :root {
-            --primary: #00f7ff;
-            --secondary: #6e00ff;
-            --dark: #0a0a1a;
-            --light: #e0e0ff;
-            --hacker-green: #00ffaa;
-            --neon-blue: #00fff7;
-            --accent: #ffd700;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ronnie Molina Martínez - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --bg: #0f0f13;
+      --text: #e6e6ff;
+      --accent: #64ffda;
+      --card-bg: #1a1a23;
+      --border: #2a2a3a;
+      --hover: #2d2d40;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Courier New', monospace;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        body {
-            background-color: var(--dark);
-            color: var(--light);
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(circle at 25% 25%, rgba(110, 0, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(0, 247, 255, 0.05) 0%, transparent 50%);
-        }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-        .terminal {
-            border: 2px solid var(--hacker-green);
-            margin: 2rem auto;
-            padding: 2rem;
-            max-width: 900px;
-            border-radius: 10px;
-            box-shadow: 0 0 25px var(--hacker-green), 0 0 5px rgba(0, 255, 170, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
+    header {
+      padding: 2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 15, 19, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        /* Fondo de partículas */
-        .background-particles {
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.2;
-        }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+    }
 
-        .particle {
-            position: absolute;
-            width: 5px; height: 5px;
-            background: var(--hacker-green);
-            border-radius: 50%;
-            animation: float 10s infinite linear;
-        }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 2rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
 
-        @keyframes float {
-            0% { transform: translateY(0); opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0.5; }
-        }
+    nav a:hover {
+      color: var(--accent);
+    }
 
-        .glitch {
-            font-size: 2.8rem;
-            text-align: center;
-            text-shadow: 2px 2px var(--primary), 0 0 10px var(--neon-blue);
-            animation: glitch 1s infinite;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
+    section {
+      padding: 6rem 5% 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
-        nav {
-            text-align: center;
-            margin: 2rem 0;
-            position: relative;
-            z-index: 1;
-        }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
 
-        nav a {
-            color: var(--hacker-green);
-            text-decoration: none;
-            margin: 0 1rem;
-            padding: 0.5rem 1rem;
-            border: 2px solid transparent;
-            transition: all 0.3s;
-            position: relative;
-        }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--accent), #50e3c2);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
+    .hero p.subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+      color: #b0b0d0;
+    }
 
-        nav a:hover::after {
-            width: 100%;
-        }
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
 
-        .section {
-            margin: 3rem 0;
-            padding: 2rem;
-            background: rgba(10, 10, 30, 0.5);
-            border: 1px solid rgba(110, 0, 255, 0.2);
-            border-radius: 10px;
-            position: relative;
-            z-index: 1;
-        }
+    .btn:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
 
-        .skill-card {
-            background: rgba(110, 0, 255, 0.1);
-            padding: 1.2rem;
-            text-align: center;
-            border: 1px solid var(--hacker-green);
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+    }
 
-        .skill-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px var(--hacker-green);
-        }
+    .skills, .experience, .projects, .certifications, .contact {
+      margin-top: 4rem;
+    }
 
-        .timeline {
-            border-left: 3px solid var(--primary);
-            padding-left: 2rem;
-            margin-left: 1rem;
-        }
+    .skills-grid, .experience-grid, .projects-grid, .certs-grid {
+      display: grid;
+      gap: 1.5rem;
+    }
 
-        .project {
-            margin: 1.5rem 0;
-            padding: 1rem;
-            border: 1px dashed var(--hacker-green);
-            border-radius: 8px;
-            transition: transform 0.3s;
-        }
-
-        .project:hover {
-            transform: translateX(5px);
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: #1a252f;
-            border: 1px solid var(--hacker-green);
-            padding: 1.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-            border-radius: 10px;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 20px var(--hacker-green);
-        }
-
-        .project-tech {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin: 1rem 0;
-        }
-
-        .tech-tag {
-            background: var(--dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            border: 1px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        .tech-tag:hover {
-            background: var(--primary);
-            color: var(--dark);
-        }
-
-        .project-link {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background: var(--primary);
-    color: var(--dark);
-    text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s;
-    border-radius: 5px;
-    position: relative;
-    z-index: 2;
-}
-
-        .project-link:hover {
-            background: var(--hacker-green); /* Color base */
-            transform: scale(1.05); /* Efecto de agrandarse */
-            box-shadow: 0 0 10px var(--hacker-green); /* Brillo al pasar el mouse */
-        }
-
-        .certifications {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .certification-item {
-            background: #1a252f;
-            padding: 1.5rem;
-            border: 1px solid var(--primary);
-            text-align: center;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .certification-item:hover {
-            transform: translateY(-5px);
-        }
-
-        @keyframes glitch {
-            0% { text-shadow: 2px 2px var(--primary); }
-            25% { text-shadow: -2px -2px var(--secondary); }
-            50% { text-shadow: 2px -2px var(--primary); }
-            75% { text-shadow: -2px 2px var(--secondary); }
-        }
-
-        @media (max-width: 768px) {
-            .terminal {
-                margin: 1rem;
-                padding: 1rem;
-            }
-
-            .glitch {
-                font-size: 2.2rem;
-            }
-        }
-
-        /* Estilo especial para QuaeroDB */
-        .quaerodb-card {
-            background: linear-gradient(145deg, rgba(10, 10, 30, 0.9), rgba(20, 20, 40, 0.8));
-            border: 2px solid var(--primary);
-            box-shadow: 0 0 25px rgba(0, 247, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .quaerodb-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 247, 255, 0.1) 0%, transparent 70%);
-            transform: rotate(45deg);
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .quaerodb-card:hover::before {
-            transform: rotate(90deg);
-        }
-
-        .quaerodb-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 0 30px rgba(0, 247, 255, 0.5);
-        }
-
-        .quaerodb-tag {
-            background: var(--primary);
-            color: var(--dark);
-            font-weight: bold;
-            padding: 0.2rem 0.6rem;
-            border-radius: 5px;
-            font-size: 0.8rem;
-        }
-
-        .quaerodb-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-right: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-        /* Estilos adicionales para proyectos */
-.xsslab-card {
-    background: linear-gradient(145deg, rgba(150, 0, 0, 0.2), rgba(255, 0, 0, 0.1));
-    border: 2px solid #ff0000;
-    box-shadow: 0 0 20px #ff0000, 0 0 5px rgba(255, 0, 0, 0.3);
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-}
-
-.xsslab-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 0, 0, 0.1) 0%, transparent 70%);
-    transform: rotate(45deg);
-    transition: transform 0.5s ease-in-out;
-}
-
-.xsslab-card:hover::before {
-    transform: rotate(90deg);
-}
-
-.xsslab-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 30px #ff0000, 0 0 15px rgba(255, 0, 0, 0.5);
-}
-
-.xsslab-icon {
-    font-size: 1.8rem;
-    color: #ff0000;
-    margin-right: 0.5rem;
-    animation: pulse 2s infinite;
-}
-
-.community-badge {
-    background: #e60000;
-    color: var(--dark);
-    font-weight: bold;
-    padding: 0.2rem 0.6rem;
-    border-radius: 5px;
-    font-size: 0.7rem;
-}
-
-/* Estilos para Log Analyzer */
-.log-analyzer-card {
-    background: linear-gradient(145deg, rgba(30, 30, 100, 0.2), rgba(60, 60, 150, 0.1));
-    border: 2px solid var(--primary);
-    box-shadow: 0 0 20px var(--primary), 0 0 5px rgba(0, 247, 255, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.log-analyzer-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 30px var(--primary), 0 0 15px rgba(0, 247, 255, 0.5);
-}
-
-.log-icon {
-    font-size: 1.8rem;
-    color: var(--primary);
-    margin-right: 0.5rem;
-    animation: float 3s infinite ease-in-out;
-}
-
-.tool-badge {
-    background: var(--primary);
-    color: var(--dark);
-    font-weight: bold;
-    padding: 0.2rem 0.6rem;
-    border-radius: 5px;
-    font-size: 0.7rem;
-}
-
-/* Estilos para Scanner */
-.scanner-card {
-    background: linear-gradient(145deg, rgba(100, 0, 100, 0.2), rgba(150, 0, 150, 0.1));
-    border: 2px solid var(--secondary);
-    box-shadow: 0 0 20px var(--secondary), 0 0 5px rgba(110, 0, 255, 0.3);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.scanner-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 0 30px var(--secondary), 0 0 15px rgba(110, 0, 255, 0.5);
-}
-
-.scanner-icon {
-    font-size: 1.8rem;
-    color: var(--secondary);
-    margin-right: 0.5rem;
-    animation: glow 2s infinite alternate;
-}
-
-.coming-soon-badge {
-    background: var(--secondary);
-    color: var(--dark);
-    font-weight: bold;
-    padding: 0.2rem 0.6rem;
-    border-radius: 5px;
-    font-size: 0.7rem;
-}
-
-/* Animaciones */
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.7; }
-}
-
-@keyframes float {
-    0% { transform: translate(0, 0); }
-    50% { transform: translate(-5px, -5px); }
-    100% { transform: translate(0, 0); }
-}
-
-    @keyframes glow {
-       from {
-           text-shadow: 0 0 5px var(--secondary);
-       }
-       to {
-           text-shadow: 0 0 15px var(--secondary);
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .experience-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .certs-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
-    
-    /* Estilo para enlaces deshabilitados */
-    .project-link.disabled {
-        background: rgba(110, 0, 255, 0.3);
-        cursor: not-allowed;
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: transform 0.3s, background 0.3s;
     }
 
-    .project-link.disabled:hover {
-        transform: none;
+    .card:hover {
+      transform: translateY(-5px);
+      background: var(--hover);
     }
-    </style>
+
+    .card h3 {
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .card p {
+      color: #c0c0e0;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-card h3 i {
+      color: var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--accent);
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .contact-links a {
+      color: var(--text);
+      font-size: 1.25rem;
+      transition: color 0.3s;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 1.5rem;
+      }
+      nav {
+        margin-top: 1rem;
+      }
+      nav a {
+        margin: 0 0.75rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .hero p.subtitle {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="background-particles">
-        <!-- Generar partículas dinámicas -->
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const particlesContainer = document.querySelector('.background-particles');
-                for (let i = 0; i < 50; i++) {
-                    const particle = document.createElement('div');
-                    particle.className = 'particle';
-                    particle.style.left = `${Math.random() * 100}%`;
-                    particle.style.top = `${Math.random() * 100}%`;
-                    particle.style.animationDuration = `${Math.random() * 10 + 5}s`;
-                    particle.style.width = particle.style.height = `${Math.random() * 5 + 2}px`;
-                    particlesContainer.appendChild(particle);
-                }
-            });
-        </script>
+
+  <header>
+    <div class="logo">Ronnie Molina</div>
+    <nav>
+      <a href="#about">Sobre mí</a>
+      <a href="#skills">Habilidades</a>
+      <a href="#projects">Proyectos</a>
+      <a href="#certifications">Certificaciones</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="about">
+    <h1>Ronnie Molina Martínez</h1>
+    <p class="subtitle">🔐 Cybersecurity Researcher | 👨‍💻 Full-Stack Developer<br>Apasionado por la seguridad ofensiva | Bug bounty hunter</p>
+    <a href="#projects" class="btn">Explorar Proyectos</a>
+  </section>
+
+  <section class="skills" id="skills">
+    <h2>Habilidades Técnicas</h2>
+    <div class="skills-grid">
+      <div class="card">
+        <h3>Pentesting & Web Hacking</h3>
+        <p>Análisis de vulnerabilidades en entornos controlados y participación en programas de bug bounty.</p>
+      </div>
+      <div class="card">
+        <h3>Desarrollo</h3>
+        <p>Creación de herramientas y scripts para automatización de pruebas y análisis forense.</p>
+      </div>
+      <div class="card">
+        <h3>Lenguajes</h3>
+        <p>Python, C++, JavaScript</p>
+      </div>
+      <div class="card">
+        <h3>Frameworks/Herramientas</h3>
+        <p>Flask, Requests, BeautifulSoup, Regex, OWASP Top 10</p>
+      </div>
     </div>
+  </section>
 
-    <div class="terminal">
-        <h1 class="glitch">InfernoidPl4y</h1>
-        <nav>
-            <a href="#about">Sobre Mí</a>
-            <a href="#skills">Habilidades</a>
-            <a href="#experience">Experiencia</a>
-            <a href="#projects">Proyectos</a>
-            <a href="#certifications">Certificaciones</a>
-            <a href="#contact">Contacto</a>
-        </nav>
-        
-        <section id="about" class="section">
-            <h2>Ronnie Molina Martínez</h2>
-            <p>🔐 Cybersecurity Researcher | 👨‍💻 Full-Stack Developer</p>
-            <p>18 años | Apasionado por la seguridad ofensiva</p>
-        </section>
-        
-        <section id="skills" class="section">
-            <h2>🛠 Habilidades Técnicas</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <h3>Pentesting</h3>
-                    <p>OWASP Top 10, Metasploit, Burp Suite</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Desarrollo</h3>
-                    <p>Python, C++, JavaScript, Flask</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Web Hacking</h3>
-                    <p>XSS, SQLi, CSRF, SSTI, JWT Exploits, ETC</p>
-                </div>
-                <div class="skill-card">
-                    <h3>Seguridad de APIs</h3>
-                    <p>Criptografía, OAuth, Autenticación y Autorización</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="experience" class="section">
-            <h2>⏳ Experiencia</h2>
-            <div class="timeline">
-                <div class="project">
-                    <h3>3 años - Pentesting Autodidacta</h3>
-                    <p>Análisis de vulnerabilidades en entornos controlados</p>
-                </div>
-                <div class="project">
-                    <h3>1 año - Web Hacking</h3>
-                    <p>Estudio de vulnerabilidades modernas en aplicaciones web</p>
-                </div>
-                <div class="project">
-                    <h3>Desarrollo de Herramientas</h3>
-                    <p>Creación de scripts para automatización de pruebas</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="projects" class="section">
-            <h2>🚀 Proyectos Destacados</h2>
-            <div class="projects-grid">
-                <div class="quaerodb-card project-card">
-                    <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                        <span class="quaerodb-icon">📁</span>
-                        <h3 style="margin: 0; color: var(--primary);">QuaeroDB</h3>
-                        <span class="quaerodb-tag" style="margin-left: auto;">Proyecto Destacado</span>
-                    </div>
-                    <p>API RESTful para gestión de bases de datos de usuarios con autenticación segura y verificación en tiempo real.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Flask</span>
-                        <span class="tech-tag">Cybersecurity</span>
-                        <span class="tech-tag">REST API</span>
-                    </div>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--hacker-green);">
-                        🚀 Plataforma para crear y gestionar bases de datos de usuarios con endpoints seguros
-                    </p>
-                    <a href="https://quaerodb.pythonanywhere.com/"  
-                       class="project-link" 
-                       target="_blank"
-                       rel="noopener noreferrer">
-                       Ver Proyecto
-                    </a>
-                </div>
-                
-                <div class="project-card xsslab-card">
-            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                <span class="xsslab-icon">🛡️</span>
-                <h3 style="margin: 0; color: var(--primary);">XSS Lab</h3>
-                <span class="community-badge" style="margin-left: auto;">Comunidad</span>
-            </div>
-            <p>Plataforma colaborativa para aprender y practicar vulnerabilidades XSS de forma segura y controlada.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--hacker-green);">
-                🤝 Laboratorio interactivo para estudiantes y profesionales de ciberseguridad
-            </p>
-            <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Flask</span>
-                <span class="tech-tag">HTML/CSS</span>
-                <span class="tech-tag">OWASP</span>
-                <span class="tech-tag">Seguridad Web</span>
-            </div>
-            <a href="https://xsslabinteractive.pythonanywhere.com"  
-               class="project-link" 
-               target="_blank"
-               rel="noopener noreferrer">
-               Ver Proyecto
-            </a>
-        </div>
-        
-        <!-- Log_Analizer mejorado -->
-        <div class="project-card log-analyzer-card">
-            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                <span class="log-icon">🔍</span>
-                <h3 style="margin: 0; color: var(--primary);">Log Analyzer</h3>
-                <span class="tool-badge" style="margin-left: auto;">Herramienta</span>
-            </div>
-            <p>Herramienta avanzada para monitoreo en tiempo real y análisis forense de registros de sistema.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--hacker-green);">
-                📊 Sistema de detección de patrones sospechosos en logs
-            </p>
-            <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Regex</span>
-                <span class="tech-tag">Cybersecurity</span>
-                <span class="tech-tag">Forense</span>
-            </div>
-            <a href="https://github.com/infernoidpl4y/Log_Analyzer"  
-               class="project-link" 
-               target="_blank"
-               rel="noopener noreferrer">
-               Ver Proyecto
-            </a>
-        </div>
-        
-        <!-- Web Vulnerability Scanner mejorado -->
-        <div class="project-card scanner-card">
-            <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                <span class="scanner-icon">📡</span>
-                <h3 style="margin: 0; color: var(--primary);">Web Vulnerability Scanner</h3>
-                <span class="coming-soon-badge" style="margin-left: auto;">Próximamente</span>
-            </div>
-            <p>Herramienta automatizada para detección de vulnerabilidades en aplicaciones web según estándares OWASP.</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--hacker-green);">
-                🔍 Escáner profesional para evaluación de seguridad web
-            </p>
-            <div class="project-tech">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Requests</span>
-                <span class="tech-tag">BeautifulSoup</span>
-                <span class="tech-tag">OWASP</span>
-                <span class="tech-tag">Scraping</span>
-            </div>
-            <a href="#" class="project-link disabled">
-                Próximamente
-            </a>
-        </div>
+  <section class="experience" id="experience">
+    <h2>Experiencia</h2>
+    <div class="experience-grid">
+      <div class="card">
+        <h3>Pentesting</h3>
+        <p>Análisis de vulnerabilidades en entornos controlados.</p>
+      </div>
+      <div class="card">
+        <h3>Web Hacking</h3>
+        <p>Participación activa en programas de bug bounty.</p>
+      </div>
+      <div class="card">
+        <h3>Desarrollo de Herramientas</h3>
+        <p>Creación de scripts para automatización de pruebas de seguridad.</p>
+      </div>
     </div>
-        </section>
-        
-        <section id="certifications" class="section">
-            <h2>📜 Certificaciones</h2>
-            <div class="certifications">
-                <div class="certification-item">
-                    <h3>CWAP</h3>
-                    <p>Certificación en Pentesting de Aplicaciones Web</p>
-                    <a href="certificaciones/certificate-196197b1.pdf">
-                        <img src="https://img.shields.io/badge/Certificacion-CWAP-red"  alt="CWAP">
-                    </a>
-                </div>
-                <div class="certification-item">
-                    <h3>Google Dorking</h3>
-                    <p>Certificación en técnicas avanzadas de búsqueda</p>
-                    <a href="certificaciones/certificate-9212e0e1.pdf">
-                        <img src="https://img.shields.io/badge/Certificacion-GoogleDorking-red"  alt="GOOGLEDORKING">
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-        <section id="contact" class="section">
-            <h2>🗒 Contacto</h2>
-            <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
-                <a href="mailto:infernoidpl4y@gmail.com">
-                    <img src="https://img.shields.io/badge/Email-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
-                </a>
-                <a href="https://github.com/InfernoidPl4y">
-                    <img src="https://img.shields.io/badge/GitHub-purple?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
-                </a>
-                <a href="https://x.com/InfernoidPl4y">
-                    <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X">
-                </a>
-                <a href="https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/">
-                    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
-                </a>
-            </div>
-        </section>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2>Proyectos Destacados</h2>
+    <div class="projects-grid">
+      <div class="card project-card">
+        <h3><i class="fas fa-database"></i> QuaeroDB</h3>
+        <p>API RESTful para gestión de bases de datos de usuarios con autenticación segura y verificación en tiempo real.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">REST API</span>
+        </div>
+        <p>🚀 Plataforma para crear y gestionar bases de datos de usuarios con endpoints seguros</p>
+        <a href="https://github.com/InfernoidPl4y/QuaeroDB" target="_blank" class="btn">Ver Proyecto</a>
+      </div>
+
+      <div class="card project-card">
+        <h3><i class="fas fa-shield-alt"></i> XSS Lab</h3>
+        <p>Plataforma colaborativa para aprender y practicar vulnerabilidades XSS de forma segura y controlada.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Flask</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">OWASP</span>
+          <span class="tag">Seguridad Web</span>
+        </div>
+        <p>🤝 Laboratorio interactivo para estudiantes y profesionales de ciberseguridad</p>
+        <a href="https://github.com/InfernoidPl4y/XSSLab" target="_blank" class="btn">Ver Proyecto</a>
+      </div>
+
+      <div class="card project-card">
+        <h3><i class="fas fa-search"></i> Log Analyzer</h3>
+        <p>Herramienta avanzada para monitoreo en tiempo real y análisis forense de registros de sistema.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Regex</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Forense</span>
+        </div>
+        <p>📊 Sistema de detección de patrones sospechosos en logs</p>
+        <a href="https://github.com/InfernoidPl4y/Log_Analizer" target="_blank" class="btn">Ver Proyecto</a>
+      </div>
+
+      <div class="card project-card">
+        <h3><i class="fas fa-radar"></i> Web Vulnerability Scanner</h3>
+        <p>Herramienta automatizada para detección de vulnerabilidades en aplicaciones web según estándares OWASP.</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">Requests</span>
+          <span class="tag">BeautifulSoup</span>
+          <span class="tag">OWASP</span>
+          <span class="tag">Scraping</span>
+        </div>
+        <p>🔍 Escáner profesional para evaluación de seguridad web</p>
+        <span class="btn" style="opacity: 0.6; pointer-events: none;">Próximamente</span>
+      </div>
     </div>
+  </section>
 
-    <script>
-        // Animaciones y funcionalidad
-        document.addEventListener('DOMContentLoaded', () => {
-            // Animación de aparición para secciones
-            const elements = document.querySelectorAll('.section h2, .skill-card h3, .project-card h3, .certification-item h3');
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }, 300 * index);
-            });
+  <section class="certifications" id="certifications">
+    <h2>Certificaciones</h2>
+    <div class="certs-grid">
+      <div class="card">
+        <h3>CWAP</h3>
+        <p>Certificación en Pentesting de Aplicaciones Web</p>
+        <a href="https://infernoidpl4y.netlify.app/certificaciones/certificate-196197b1.pdf" target="_blank" class="btn">Ver Certificado</a>
+      </div>
+      <div class="card">
+        <h3>Google Dorking</h3>
+        <p>Certificación en técnicas avanzadas de búsqueda</p>
+        <a href="https://infernoidpl4y.netlify.app/certificaciones/certificate-9212e0e1.pdf" target="_blank" class="btn">Ver Certificado</a>
+      </div>
+    </div>
+  </section>
 
-            // Scroll suave para navegación
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const section = document.querySelector(this.getAttribute('href'));
-                    section.scrollIntoView({ behavior: 'smooth' });
-                });
-            });
+  <section class="contact" id="contact">
+    <h2>Contacto</h2>
+    <div class="card" style="text-align: center;">
+      <p><i class="fas fa-envelope"></i> infernoidpl4y@gmail.com</p>
+      <div class="contact-links">
+        <a href="https://github.com/InfernoidPl4y" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/InfernoidPl4y" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
 
-            // Efecto de hover para tarjetas
-            document.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-8px)';
-                });
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = 'translateY(0)';
-                });
-            });
-        });
-    </script>
+  <footer>
+    <p>&copy; 2025 Ronnie Molina Martínez. Todos los derechos reservados.</p>
+  </footer>
+
 </body>
 </html>
+

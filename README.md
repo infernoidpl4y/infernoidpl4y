@@ -1,7 +1,6 @@
 ## 🔥 Sobre Mí
 Soy *InfernoidPl4y*, desarrollador/a apasionado/a por:
 - Cyber Security
-- Python
 - Web Dev
 - Open Source
 

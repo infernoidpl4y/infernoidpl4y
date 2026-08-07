@@ -15,18 +15,20 @@
   
   <style>
     :root {
-      --bg: #06060b;
-      --bg-secondary: #0b0b14;
-      --text: #e6e6ff;
-      --accent: #00d4aa;
-      --accent-cyan: #00e5ff;
-      --accent-dark: #00997a;
-      --card-bg: #0f0f1c;
-      --card-bg-hover: #14142a;
-      --border: #1f1f33;
+      --bg: #0c111f;
+      --bg-secondary: #111827;
+      --text: #dfe7f3;
+      --muted: #a4afbf;
+      --accent: #79a0e8;
+      --accent-500: #5e84d8;
+      --accent-cyan: #6fc0e6;
+      --accent-dark: #4768b8;
+      --card-bg: #131b2d;
+      --card-bg-hover: #182238;
+      --border: #27354f;
       --section-spacing: 5rem;
       --gradient: linear-gradient(135deg, var(--accent), var(--accent-cyan));
-      --shadow-glow: 0 0 25px rgba(0, 212, 170, 0.15);
+      --shadow-glow: 0 0 25px rgba(111, 151, 232, 0.12);
       --font-head: 'Sora', 'Inter', system-ui, sans-serif;
       --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
     }
@@ -53,8 +55,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(0, 212, 170, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0, 212, 170, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(111, 151, 232, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(111, 151, 232, 0.05) 1px, transparent 1px);
       background-size: 44px 44px;
       -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
       mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
@@ -70,14 +72,14 @@
       top: -18rem;
       left: 50%;
       transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(0, 212, 170, 0.12) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(111, 151, 232, 0.10) 0%, transparent 65%);
       pointer-events: none;
       z-index: 0;
       filter: blur(30px);
     }
 
     ::selection {
-      background: rgba(0, 212, 170, 0.3);
+      background: rgba(111, 151, 232, 0.20);
       color: #fff;
     }
 
@@ -116,7 +118,7 @@
       width: 0%;
       background: var(--gradient);
       z-index: 1100;
-      box-shadow: 0 0 12px rgba(0, 212, 170, 0.6);
+      box-shadow: 0 0 12px rgba(111, 151, 232, 0.40);
     }
 
     /* Header mejorado */
@@ -129,16 +131,16 @@
       width: 100%;
       top: 0;
       z-index: 1000;
-      background: rgba(6, 6, 11, 0.65);
+      background: rgba(10, 15, 28, 0.75);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(42, 42, 58, 0.5);
+      border-bottom: 1px solid rgba(36, 51, 80, 0.5);
       transition: all 0.3s ease;
     }
 
     header.scrolled {
       padding: 1rem 5%;
-      background: rgba(6, 6, 11, 0.9);
+      background: rgba(10, 15, 28, 0.92);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
     }
 
@@ -153,20 +155,20 @@
       letter-spacing: -0.02em;
     }
 
+    .logo img {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+
     .logo span {
       background: var(--gradient);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-    }
-
-    .logo i {
-      font-size: 1.5rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.5));
     }
 
     nav {
@@ -205,6 +207,31 @@
       color: var(--accent);
     }
 
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.25rem;
+      background: var(--gradient);
+      color: var(--bg) !important;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(94, 132, 216, 0.28);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(94, 132, 216, 0.40);
+    }
+
+    @media (max-width: 768px) {
+      .nav-cta {
+        margin-top: 0.5rem;
+      }
+    }
+
     /* Secciones */
     section {
       padding: var(--section-spacing) 5%;
@@ -215,7 +242,7 @@
     /* Resaltado de sección activa en nav */
     nav a.active {
       color: var(--accent);
-      text-shadow: 0 0 12px rgba(0, 212, 170, 0.6);
+      text-shadow: 0 0 12px rgba(111, 151, 232, 0.40);
     }
 
     /* Hero section mejorada */
@@ -229,27 +256,82 @@
       overflow: hidden;
     }
 
-    .hero::before {
+.hero::before {
       content: '';
       position: absolute;
       top: -50%;
       right: -20%;
       width: 70%;
       height: 150%;
-      background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(111, 151, 232, 0.1) 0%, transparent 70%);
       z-index: -1;
+    }
+
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .logo-card {
+      position: relative;
+      width: min(340px, 78vw);
+      aspect-ratio: 7 / 10;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), var(--shadow-glow);
+    }
+
+    @media (min-width: 992px) {
+      .hero {
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+      }
+      .hero-text {
+        flex: 1.2;
+      }
+      .hero-visual {
+        flex: 1;
+      }
+    }
+
+    .logo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .logo-card-badge {
+      position: absolute;
+      top: -18px;
+      right: -18px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 8px 24px rgba(94, 132, 216, 0.5);
     }
 
     .hero h1 {
       font-size: 4rem;
       margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, var(--accent), #50e3c2, var(--accent-cyan), var(--accent));
+      background: linear-gradient(90deg, var(--accent), #7aa6ff, var(--accent-cyan), var(--accent));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       animation: gradientShift 5s ease infinite;
       background-size: 300% 200%;
-      filter: drop-shadow(0 0 30px rgba(0, 212, 170, 0.25));
+      filter: drop-shadow(0 0 30px rgba(111, 151, 232, 0.16));
     }
 
     .hero h1::after {
@@ -274,7 +356,7 @@
     .hero .subtitle {
       font-size: 1.5rem;
       margin-bottom: 2rem;
-      color: #b0b0d0;
+      color: var(--muted);
       max-width: 700px;
     }
 
@@ -335,7 +417,65 @@
       color: var(--bg);
       border-color: transparent;
       transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 212, 170, 0.3);
+      box-shadow: 0 10px 20px rgba(111, 151, 232, 0.20);
+    }
+
+    /* Badge de disponibilidad */
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.55rem 1.1rem;
+      background: rgba(111, 151, 232, 0.08);
+      border: 1px solid rgba(111, 151, 232, 0.28);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+    }
+
+    .availability .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); }
+      70% { box-shadow: 0 0 0 8px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    /* Etiqueta de rol arriba del h1 */
+    .eyebrow {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-size: 0.8rem;
+      color: var(--accent-cyan);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* Botón primario de degradado */
+    .btn.btn-primary {
+      background: var(--gradient);
+      color: var(--bg);
+      border: none;
+      box-shadow: 0 8px 20px rgba(94, 132, 216, 0.32);
+    }
+
+    .btn.btn-primary:hover {
+      background: var(--gradient);
+      color: var(--bg);
+      transform: translateY(-3px);
+      box-shadow: 0 14px 30px rgba(94, 132, 216, 0.40);
     }
 
     /* Botón flotante volver arriba */
@@ -371,7 +511,7 @@
     .back-to-top:hover {
       background: var(--gradient);
       color: var(--bg);
-      box-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
+      box-shadow: 0 0 20px rgba(111, 151, 232, 0.36);
     }
 
     /* Títulos de sección mejorados */
@@ -383,12 +523,12 @@
     }
 
     h2 {
-      font-size: 3rem;
+      font-size: 2.6rem;
       position: relative;
       display: inline-block;
     }
 
-    h2::after {
+h2::after {
       content: '';
       position: absolute;
       bottom: -10px;
@@ -397,14 +537,33 @@
       height: 4px;
       background: var(--gradient);
       border-radius: 2px;
-      box-shadow: 0 0 12px rgba(0, 212, 170, 0.5);
+      box-shadow: 0 0 12px rgba(111, 151, 232, 0.40);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-cyan);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 22px;
+      height: 1px;
+      background: var(--accent-cyan);
     }
 
     /* Cards mejoradas */
     .card {
       background: var(--card-bg);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 2rem;
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       height: 100%;
@@ -412,6 +571,7 @@
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
     }
 
     .card::before {
@@ -434,7 +594,7 @@
       right: -20%;
       width: 80%;
       height: 80%;
-      background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
       opacity: 0;
       transition: opacity 0.4s ease;
       pointer-events: none;
@@ -451,26 +611,42 @@
     .card:hover {
       transform: translateY(-10px);
       background: var(--card-bg-hover);
-      border-color: rgba(0, 212, 170, 0.6);
+      border-color: rgba(111, 151, 232, 0.40);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--shadow-glow);
     }
 
     .card h3 {
       color: var(--accent);
-      margin-bottom: 1rem;
-      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.3rem;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.9rem;
     }
 
     .card h3 i {
-      font-size: 1.3rem;
-      filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.4));
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--accent);
+      background: rgba(111, 151, 232, 0.10);
+      border: 1px solid rgba(111, 151, 232, 0.24);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover h3 i {
+      background: var(--gradient);
+      color: var(--bg);
+      transform: rotate(-4deg) scale(1.05);
     }
 
     .card p {
-      color: #c0c0e0;
+      color: #b6c2d6;
       margin-bottom: 1.5rem;
       flex-grow: 1;
     }
@@ -514,20 +690,20 @@
     }
 
     .tag {
-      background: rgba(0, 212, 170, 0.1);
+      background: rgba(111, 151, 232, 0.10);
       color: var(--accent);
       padding: 0.4rem 0.8rem;
       border-radius: 20px;
       font-size: 0.85rem;
       font-weight: 500;
-      border: 1px solid rgba(0, 212, 170, 0.2);
+      border: 1px solid rgba(111, 151, 232, 0.16);
       transition: all 0.3s ease;
     }
 
     .tag:hover {
-      background: rgba(0, 212, 170, 0.2);
+      background: rgba(111, 151, 232, 0.16);
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 212, 170, 0.2);
+      box-shadow: 0 4px 12px rgba(111, 151, 232, 0.16);
     }
 
     /* Contacto mejorado */
@@ -585,15 +761,36 @@
       color: #888;
       border-top: 1px solid var(--border);
       margin-top: var(--section-spacing);
-      background: rgba(10, 10, 15, 0.8);
+      background: rgba(13, 19, 33, 0.8);
     }
 
     .footer-content {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       flex-wrap: wrap;
       gap: 2rem;
+      text-align: left;
+    }
+
+    .footer-nav,
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-nav a,
+    .footer-social a {
+      color: #9fa8bd;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-nav a:hover,
+    .footer-social a:hover {
+      color: var(--accent);
     }
 
     /* Responsive mejorado */
@@ -698,7 +895,7 @@
 
   <header id="main-header">
     <div class="logo">
-      <i class="fas fa-shield-alt"></i>
+      <img src="logo.jpg" alt="Logo InfernoidPl4y" />
       <span>InfernoidPl4y</span>
     </div>
     <nav>
@@ -709,49 +906,59 @@
       <a href="#certifications">Certificaciones</a>
       <a href="#contact">Contacto</a>
     </nav>
+    <a href="#contact" class="nav-cta">Contratar</a>
   </header>
 
-  <section class="hero" id="about">
-    <h1>InfernoidPl4y</h1>
-    <p class="subtitle">
-      Especialista en <strong>Ciberseguridad Ofensiva</strong> | <strong>Bug Bounty Hunter</strong> certificado | 
-      <strong>Desarrollador Full-Stack</strong> con enfoque en seguridad aplicada
-    </p>
-    
-    <div class="hero-highlights">
-      <div class="highlight">
-        <i class="fas fa-bug"></i>
-        <span>Identificación y reporte de vulnerabilidades</span>
+<section class="hero" id="about">
+    <div class="hero-text">
+      <span class="availability"><span class="dot"></span> Disponible para proyectos & consultorías</span>
+      <span class="eyebrow">Ciberseguridad Ofensiva · DevSecOps</span>
+      <h1>InfernoidPl4y</h1>
+      <p class="subtitle">
+        Especialista en <strong>Ciberseguridad Ofensiva</strong> | <strong>Bug Bounty Hunter</strong> certificado | 
+        <strong>Desarrollador Full-Stack</strong> con enfoque en seguridad aplicada
+      </p>
+      
+      <div class="hero-highlights">
+        <div class="highlight">
+          <i class="fas fa-bug"></i>
+          <span>Identificación y reporte de vulnerabilidades</span>
+        </div>
+        <div class="highlight">
+          <i class="fas fa-code"></i>
+          <span>Desarrollo de herramientas de seguridad</span>
+        </div>
+        <div class="highlight">
+          <i class="fas fa-shield-alt"></i>
+          <span>Pentesting & Análisis Forense</span>
+        </div>
       </div>
-      <div class="highlight">
-        <i class="fas fa-code"></i>
-        <span>Desarrollo de herramientas de seguridad</span>
-      </div>
-      <div class="highlight">
-        <i class="fas fa-shield-alt"></i>
-        <span>Pentesting & Análisis Forense</span>
+      
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-rocket"></i>
+          Explorar Proyectos
+        </a>
+        <a href="#contact" class="btn">
+          <i class="fas fa-paper-plane"></i>
+          Contactar
+        </a>
       </div>
     </div>
-    
-    <p style="margin-bottom: 2rem; max-width: 800px; color: #a0a0c0;">
-      Apasionado por la seguridad ofensiva y el desarrollo seguro. Combino habilidades técnicas avanzadas con 
-      metodologías de testing rigurosas para fortalecer sistemas y aplicaciones contra amenazas modernas.
-    </p>
-    
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-      <a href="#projects" class="btn">
-        <i class="fas fa-rocket"></i>
-        Explorar Proyectos
-      </a>
-      <a href="#contact" class="btn" style="border-color: #666; color: #ccc;">
-        <i class="fas fa-paper-plane"></i>
-        Contactar
-      </a>
+
+    <div class="hero-visual fade-in">
+      <div class="logo-card">
+        <img src="logo.jpg" alt="Logo InfernoidPl4y" />
+        <div class="logo-card-badge">
+          <i class="fas fa-bug"></i>
+        </div>
+      </div>
     </div>
   </section>
 
   <section class="skills" id="skills">
     <div class="section-header">
+      <span class="section-label">01 · Capacidades</span>
       <h2>Habilidades Técnicas</h2>
       <p style="color: #888; max-width: 400px;">Dominio de tecnologías y metodologías modernas en ciberseguridad y desarrollo</p>
     </div>
@@ -811,6 +1018,7 @@
 
   <section class="experience" id="experience">
     <div class="section-header">
+      <span class="section-label">02 · Trayectoria</span>
       <h2>Experiencia & Metodologías</h2>
       <p style="color: #888; max-width: 400px;">Enfoque sistemático y resultados demostrables en seguridad ofensiva</p>
     </div>
@@ -851,6 +1059,7 @@
 
   <section class="projects" id="projects">
     <div class="section-header">
+      <span class="section-label">03 · Trabajo</span>
       <h2>Proyectos Destacados</h2>
       <p style="color: #888; max-width: 400px;">Implementaciones técnicas que demuestran habilidades y enfoque práctico</p>
     </div>
@@ -936,6 +1145,7 @@
 
   <section class="certifications" id="certifications">
     <div class="section-header">
+      <span class="section-label">04 · Acreditaciones</span>
       <h2>Certificaciones & Logros</h2>
       <p style="color: #888; max-width: 400px;">Validación formal de conocimientos y habilidades especializadas</p>
     </div>
@@ -973,6 +1183,7 @@
 
   <section class="contact" id="contact">
     <div class="section-header">
+      <span class="section-label">05 · Contacto</span>
       <h2>Contacto</h2>
       <p style="color: #888; max-width: 400px;">Disponible para colaboraciones, consultorías y proyectos desafiantes</p>
     </div>
@@ -991,7 +1202,7 @@
             <strong>Disponibilidad:</strong><br>
             Consultorías · Proyectos freelance · Colaboraciones técnicas
           </p>
-          <p style="margin-top: 1.5rem; color: #a0a0c0; font-size: 0.95rem;">
+          <p style="margin-top: 1.5rem; color: #94a3b8; font-size: 0.95rem;">
             <i class="fas fa-clock"></i> Respuesta dentro de 24-48 horas
           </p>
         </div>
@@ -1040,12 +1251,28 @@
   <footer>
     <div class="footer-content">
       <div style="text-align: left;">
-        <h3 style="color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem;">
-          <i class="fas fa-shield-alt"></i> InfernoidPl4y
-        </h3>
+        <h3 style="color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem; display: flex; align-items: center; gap: 0.6rem;">
+        <img src="logo.jpg" alt="Logo InfernoidPl4y" style="width: 36px; height: 36px; object-fit: cover; border-radius: 10px; border: 1px solid var(--border);" /> InfernoidPl4y
+      </h3>
         <p style="color: #aaa; max-width: 300px;">
           Especialista en ciberseguridad ofensiva y desarrollo seguro
         </p>
+      </div>
+      
+      <div class="footer-nav">
+        <strong style="color: var(--text); font-size: 0.95rem;">Navegación</strong>
+        <a href="#about">Inicio</a>
+        <a href="#skills">Habilidades</a>
+        <a href="#experience">Experiencia</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#certifications">Certificaciones</a>
+      </div>
+      
+      <div class="footer-social">
+        <strong style="color: var(--text); font-size: 0.95rem;">Redes</strong>
+        <a href="https://github.com/InfernoidPl4y" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+        <a href="https://x.com/InfernoidPl4y" target="_blank"><i class="fab fa-x-twitter"></i> X / Twitter</a>
+        <a href="https://www.linkedin.com/in/ronnie-molina-mart%C3%ADnez-16185a302/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
       </div>
       
       <div>

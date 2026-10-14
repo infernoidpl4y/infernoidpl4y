@@ -1,6 +1,6 @@
 ## 🚀 Lenguajes que manejo
 
-![C](https://img.shields.io/badge/c-3776AB?style=for-the-badge&logo=c&logoColor=white)
+![](https://img.shields.io/badge/c-3776AB?style=for-the-badge&logo=c&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![PowerShell](https://img.shields.io/badge/PowerShell-5391FE?style=for-the-badge&logo=powershell&logoColor=white)
